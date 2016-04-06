@@ -1,7 +1,7 @@
-package com.scytl.internal.sharing.rest.service;
+package com.rizandoelrizo.spring.boot.demo.rest.service;
 
 
-import com.scytl.internal.sharing.rest.model.TallySheet;
+import com.rizandoelrizo.spring.boot.demo.rest.model.TallySheet;
 
 import java.util.List;
 

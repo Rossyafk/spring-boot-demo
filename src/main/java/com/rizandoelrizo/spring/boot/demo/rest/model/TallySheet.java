@@ -1,4 +1,4 @@
-package com.scytl.internal.sharing.rest.model;
+package com.rizandoelrizo.spring.boot.demo.rest.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

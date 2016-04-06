@@ -1,4 +1,4 @@
-package com.scytl.internal.sharing;
+package com.rizandoelrizo.spring.microservice.job.launcher;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
@@ -7,7 +7,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(SpringBootDemoApplication.class);
+		return application.sources(JobLauncherApplication.class);
 	}
 
 }

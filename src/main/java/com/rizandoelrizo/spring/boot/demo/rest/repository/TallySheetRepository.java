@@ -1,6 +1,6 @@
-package com.scytl.internal.sharing.rest.repository;
+package com.rizandoelrizo.spring.boot.demo.rest.repository;
 
-import com.scytl.internal.sharing.rest.model.TallySheet;
+import com.rizandoelrizo.spring.boot.demo.rest.model.TallySheet;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

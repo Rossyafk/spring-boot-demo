@@ -1,4 +1,4 @@
-package com.scytl.internal.sharing;
+package com.rizandoelrizo.spring.boot.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,7 +1,7 @@
-package com.scytl.internal.sharing.rest;
+package com.rizandoelrizo.spring.boot.demo.rest;
 
-import com.scytl.internal.sharing.rest.model.TallySheet;
-import com.scytl.internal.sharing.rest.service.TallySheetService;
+import com.rizandoelrizo.spring.boot.demo.rest.model.TallySheet;
+import com.rizandoelrizo.spring.boot.demo.rest.service.TallySheetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
