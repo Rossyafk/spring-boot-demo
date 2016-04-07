@@ -1,6 +1,7 @@
 package com.rizandoelrizo.spring.microservice.job.launcher.web;
 
 import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
@@ -20,7 +21,7 @@ public class JobLauncherController {
     private final Job sampleJob;
 
     private JobParameters jobParameters = new JobParametersBuilder()
-            .addLong("run.id", 1L)
+            .addLong("run.id", 1000L)
             .toJobParameters();
 
     @Autowired
@@ -35,10 +36,9 @@ public class JobLauncherController {
     }
 
     @RequestMapping(value = "/launch", method = RequestMethod.GET)
-    public String launch() throws Exception {
+    public JobScheduled launch() throws Exception {
         jobParameters = sampleJob.getJobParametersIncrementer().getNext(jobParameters);
-        jobLauncher.run(sampleJob, jobParameters);
-        return "OK";
+        return JobScheduled.of(jobLauncher.run(sampleJob, jobParameters));
     }
 
 }

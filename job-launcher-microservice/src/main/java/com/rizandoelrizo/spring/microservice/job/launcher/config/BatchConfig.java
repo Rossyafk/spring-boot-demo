@@ -1,6 +1,10 @@
 package com.rizandoelrizo.spring.microservice.job.launcher.config;
 
+import com.rizandoelrizo.spring.microservice.job.launcher.service.JobExecutionWebService;
+import com.rizandoelrizo.spring.microservice.job.launcher.service.JobExecutionWebServiceImpl;
+import com.rizandoelrizo.spring.microservice.job.launcher.service.JobListener;
 import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobExecutionListener;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
@@ -11,8 +15,12 @@ import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.support.ListItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,6 +35,9 @@ public class BatchConfig {
 
     @Autowired
     public StepBuilderFactory stepBuilderFactory;
+
+    @Value("${service.execution.url}")
+    public String executionServiceUrl;
 
     @Bean
     @StepScope
@@ -59,7 +70,18 @@ public class BatchConfig {
                 .incrementer(new RunIdIncrementer())
                 .flow(sampleStep())
                 .end()
+                .listener(jobExecutionListener())
                 .build();
+    }
+
+    @Bean
+    public JobExecutionWebService jobExecutionWebService() {
+        return new JobExecutionWebServiceImpl(new RestTemplate(), executionServiceUrl);
+    }
+
+    @Bean
+    public JobExecutionListener jobExecutionListener() {
+        return new JobListener(jobExecutionWebService());
     }
 
 }

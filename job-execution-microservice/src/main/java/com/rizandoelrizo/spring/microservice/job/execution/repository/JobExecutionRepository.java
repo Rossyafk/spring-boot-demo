@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * JobExecution Repository.
  */
-public interface JobExecutionRepository extends JpaRepository<JobExecution, Long>{
+public interface JobExecutionRepository extends JpaRepository<JobExecutionRecord, Long>{
 
 }

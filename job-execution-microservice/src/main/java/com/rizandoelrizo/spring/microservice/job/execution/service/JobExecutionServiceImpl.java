@@ -1,7 +1,7 @@
 package com.rizandoelrizo.spring.microservice.job.execution.service;
 
 
-import com.rizandoelrizo.spring.microservice.job.execution.repository.JobExecution;
+import com.rizandoelrizo.spring.microservice.job.execution.repository.JobExecutionRecord;
 import com.rizandoelrizo.spring.microservice.job.execution.repository.JobExecutionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,17 +20,17 @@ public class JobExecutionServiceImpl implements JobExecutionService {
     }
 
     @Transactional
-    public JobExecution save(JobExecution tallySheet) {
+    public JobExecutionRecord save(JobExecutionRecord tallySheet) {
         return jobExecutionRepository.save(tallySheet);
     }
 
     @Transactional
-    public List<JobExecution> getAll() {
+    public List<JobExecutionRecord> getAll() {
         return jobExecutionRepository.findAll();
     }
 
     @Transactional
-    public JobExecution getById(Long id) {
+    public JobExecutionRecord getById(Long id) {
         return jobExecutionRepository.findOne(id);
     }
 

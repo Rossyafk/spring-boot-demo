@@ -1,17 +1,17 @@
 package com.rizandoelrizo.spring.microservice.job.execution.service;
 
 
-import com.rizandoelrizo.spring.microservice.job.execution.repository.JobExecution;
+import com.rizandoelrizo.spring.microservice.job.execution.repository.JobExecutionRecord;
 
 import java.util.List;
 
 public interface JobExecutionService {
 
-    JobExecution save(JobExecution jobExecution);
+    JobExecutionRecord save(JobExecutionRecord jobExecutionRecord);
 
-    List<JobExecution> getAll();
+    List<JobExecutionRecord> getAll();
 
-    JobExecution getById(Long id);
+    JobExecutionRecord getById(Long id);
 
     void deleteAll();
 

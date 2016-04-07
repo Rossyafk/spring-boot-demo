@@ -1,0 +1,7 @@
+server:
+    port: 7000
+    context-path: /execution
+
+spring:
+    jmx:
+        enabled: false
