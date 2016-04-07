@@ -1,0 +1,10 @@
+version: '2'
+services:
+  launcher-microservice:
+    image: launcher-microservice
+    ports:
+      - "8000:8000"
+  execution-microservice:
+    image: execution-microservice
+    ports:
+      - "7000:7000"
