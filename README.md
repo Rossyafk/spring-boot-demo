@@ -4,9 +4,19 @@
 
 ### Starting
 
-To start the server, execute
+#### Creating the docker images
 
- * build the images
+```bash
+cd job-launcher-microservice
+mvn docker:build
+
+cd job-execution-microservice
+mvn docker:build
+```
+
+#### Starting the docker instances
+
+To start the server, execute
 
 ```bash
 cd docker
