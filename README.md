@@ -23,7 +23,8 @@ cd docker
 docker-compose up -d
 ```
 
-TODO
+The server will be available on the docker instance IP (localhost or similar) port 7000 / 8000
+
 
 ### Sending commands
 
